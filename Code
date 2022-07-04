@@ -160,39 +160,6 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 
 
 
-
-
---------------------------------------------------------------------------------------------------------------------------
--- Remove Duplicates
-
-WITH RowNumCTE AS(
-Select *,
-	ROW_NUMBER() OVER (
-	PARTITION BY ParcelID,
-				 PropertyAddress,
-				 SalePrice,
-				 SaleDate,
-				 LegalReference
-				 ORDER BY
-					UniqueID
-					) row_num
-
-From [Portfolio Project].dbo.NashvilleHousing
---order by ParcelID
-)
-Select *
-From RowNumCTE
-Where row_num > 1
-Order by PropertyAddress
-
-
-
-Select *
-From [Portfolio Project].dbo.NashvilleHousing
-
-
-
-
 ---------------------------------------------------------------------------------------------------------
 
 -- Delete Unused Columns

@@ -19,16 +19,6 @@ SET SaleDate = CONVERT(Date,SaleDate)
 Select SaleDate
 From NashvilleHousing
 
--- If it doesn't Update properly
-
-select saleDateConverted, CONVERT(Date,SaleDate)
-From [Portfolio Project].dbo.NashvilleHousing
-
-ALTER TABLE NashvilleHousing
-Add SaleDateConverted Date;
-
-Update NashvilleHousing
-SET SaleDateConverted = CONVERT(Date,SaleDate)
 
 --------------------------------------------------------------------------------------------------------------------------
 
